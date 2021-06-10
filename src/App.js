@@ -1,22 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 
 import './App.css';
 
+//global scope 
+
+const initialState = {
+  count: 0
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+//global scope
 
 const App = () => {
 
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
+    document.title = `You clicked ${state.count} times`;
   });
 
-  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <h1>{count}</h1>
-      <button onClick={()=>setCount(count + 1)}>Increment</button>
-      <button onClick={()=>setCount(count - 1)}>Decrement</button>
-      
+    
+      <h1>{state.count}</h1>
+
+      <button onClick={() => dispatch({ type: "increment" })}>
+        Increment
+      </button>
+
+      <button onClick={() => dispatch({ type: "decrement" })}>
+        Decrement
+      </button>
+
     </div>
   );
 }

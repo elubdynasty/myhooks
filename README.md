@@ -1,4 +1,4 @@
-# Getting Started with React Hooks (useState, useReducer)
+# Getting Started with React Hooks (useState, useEffect & useReducer)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
