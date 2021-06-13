@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from 'react';
 
+import Darkthemedbutton from './buttons/darkthemedbutton'
 import './App.css';
 
 //global scope 
@@ -42,6 +43,8 @@ const App = () => {
       <button onClick={() => dispatch({ type: "decrement" })}>
         Decrement
       </button>
+
+      <Darkthemedbutton />
 
     </div>
   );
